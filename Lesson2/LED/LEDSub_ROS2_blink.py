@@ -10,8 +10,8 @@ GPIO.setup(17,GPIO.OUT)
 
 class LED_sub(Node): 
     def __init__(self): 
-        super().__init__('LED') 
-        self.subscription = self.create_subscription(String,"chatter",self.listener_callback,10) 
+        super().__init__('LED')
+        self.subscription = self.create_subscription(String, "chatter", self.listener_callback, 10) 
         self.subscription #prevent unused variable warning 
 
     def listener_callback(self, msg): 
