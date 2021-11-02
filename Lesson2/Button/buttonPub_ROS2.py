@@ -3,6 +3,7 @@ import rclpy
 import RPi.GPIO as GPIO
 from rclpy.node import Node 
 from std_msgs.msg import String 
+import time
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(18,GPIO.IN)
@@ -21,6 +22,7 @@ class button_pub(Node):
         while 1:
             if GPIO.input(18) == 0:
                 self.publisher_.publish(msg) 
+                time.sleep(0.2)
 
 if __name__ == '__main__': 
     rclpy.init()

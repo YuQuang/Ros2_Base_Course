@@ -7,4 +7,3 @@ GPIO.setup(17, GPIO.OUT)
 LEDon = GPIO.output(17, 1)
 time.sleep(1)
 LEDoff = GPIO.output(17, 0)
-
