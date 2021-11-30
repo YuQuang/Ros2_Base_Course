@@ -17,7 +17,13 @@ class ePaper_sub(Node):
 
     def listener_callback(self, msg): 
         if msg.data in ['morning','night']:
-            image = Image.open(msg.data + '.bmp')
+            print(msg.data)
+            picName = 'sun'
+            if msg.data == 'morning':
+                picName = 'sun'
+            else:
+                picName = 'moon'
+            image = Image.open(picName + '.bmp')
             epd.set_frame_memory(image, 0, 0)
             epd.display_frame()
 

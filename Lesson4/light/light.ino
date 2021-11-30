@@ -1,4 +1,3 @@
-Arduino
 //讀取光敏電阻
 int photocellPin = A2; // 光敏電阻接在anallog pin 2
 int photocellVal = 0; // photocell variable
