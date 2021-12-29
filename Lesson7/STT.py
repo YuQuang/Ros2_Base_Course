@@ -8,21 +8,18 @@ fromLanguage = "zh-TW"
 toLanguage = "en"
  
 try:
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Say something!")
-        audio = r.listen(source)
-        
-        sttTXT_org = r.recognize_google(audio, language = fromLanguage)
-        print("Google Speech Recognition thinks you said:" + sttTXT_org)
-        
-        sttTXT_tblob = TextBlob(sttTXT_org)
-        
-        blobTranslated = sttTXT_tblob.translate(to=toLanguage)
-        print("Translated -- " + blobTranslated.raw)
-        
-        tts = gTTS(blobTranslated.raw + ".", lang=toLanguage)
-        tts.save("tts.mp3")
+    print("Say something!")
+    
+    sttTXT_org = "你好"
+    print("Google Speech Recognition thinks you said:" + sttTXT_org)
+    
+    sttTXT_tblob = TextBlob(sttTXT_org)
+    
+    blobTranslated = sttTXT_tblob.translate(to=toLanguage)
+    print("Translated -- " + blobTranslated.raw)
+    
+    tts = gTTS(blobTranslated.raw + ".", lang=toLanguage)
+    tts.save("tts.mp3")
 except sr.UnknownValueError:
     print("Google Speech Recognition could not understand audio")
 
