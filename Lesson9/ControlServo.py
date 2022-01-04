@@ -16,7 +16,7 @@ def index():
     data = request.form['message']
     if data in carCmd:
         ser.write(carCmd[data].encode())
-        return '目前行進方向：' + returnText[data]
+        return '目前行進方向:' + returnText[data]
     return '???'
 
 @app.route('/')
